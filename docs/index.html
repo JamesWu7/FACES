@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FACES | Facial Analysis for Classification of Etiology in Scoliosis</title>
+    <meta
+      name="description"
+      content="FACES is a research prototype for facial image-based hierarchical screening and etiological stratification of pediatric scoliosis."
+    />
+    <style>
+      :root {
+        --ink: #16201d;
+        --muted: #5c6b65;
+        --line: #dbe5e0;
+        --panel: #f7faf8;
+        --accent: #1d7a5c;
+        --accent-dark: #11533e;
+        --warn: #8a4b10;
+        --warn-bg: #fff6e8;
+        --bg: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.55;
+      }
+
+      header {
+        border-bottom: 1px solid var(--line);
+        background: #ffffff;
+      }
+
+      .wrap {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        min-height: 76vh;
+        display: grid;
+        align-items: center;
+        padding: 56px 0 44px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 34px;
+      }
+
+      .brand img {
+        width: 88px;
+        height: auto;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 920px;
+        font-size: clamp(40px, 7vw, 76px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-size: 20px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border-radius: 7px;
+        border: 1px solid var(--accent);
+        color: #ffffff;
+        background: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .button.secondary {
+        color: var(--accent-dark);
+        background: #ffffff;
+      }
+
+      main {
+        padding: 48px 0 68px;
+      }
+
+      section {
+        padding: 34px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h2 {
+        margin: 0 0 18px;
+        font-size: 28px;
+        letter-spacing: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        background: var(--panel);
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .card p,
+      li {
+        color: var(--muted);
+      }
+
+      .notice {
+        border: 1px solid #f0c78a;
+        border-radius: 8px;
+        padding: 18px;
+        color: var(--warn);
+        background: var(--warn-bg);
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 5px;
+        background: #edf3f0;
+      }
+
+      footer {
+        padding: 28px 0 44px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          min-height: auto;
+          padding-top: 34px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .brand img {
+          width: 70px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap hero">
+        <div>
+          <div class="brand">
+            <img src="../logo.png" alt="FACES logo" />
+            <span>Research prototype</span>
+          </div>
+          <h1>FACES</h1>
+          <p class="lead">
+            Facial Analysis for Classification of Etiology in Scoliosis is a deep learning research prototype for hierarchical screening and etiological stratification of pediatric scoliosis from frontal facial photographs.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://huggingface.co/spaces/JamesWu7/FACES">Open Hugging Face demo</a>
+            <a class="button secondary" href="https://github.com/JamesWu7/FACES">View GitHub repository</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section>
+        <h2>Hierarchical Workflow</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>1. Screening</h3>
+            <p>Binary model output for healthy control versus scoliosis-related support.</p>
+          </article>
+          <article class="card">
+            <h3>2. Etiology</h3>
+            <p>Superclass ranking across AIS, CMS and syndromic scoliosis.</p>
+          </article>
+          <article class="card">
+            <h3>3. SS Subtyping</h3>
+            <p>Ranked support across 11 syndromic scoliosis subtype categories.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Use Boundary</h2>
+        <div class="notice">
+          FACES is intended for research demonstration and clinical triage support only. Model outputs are not standalone diagnoses and should be interpreted together with radiographs, MRI, genetic testing, history, physical examination and specialist assessment.
+        </div>
+      </section>
+
+      <section>
+        <h2>Deployment</h2>
+        <ul>
+          <li><strong>Hugging Face Spaces:</strong> runs the real Gradio/PyTorch inference app.</li>
+          <li><strong>GitHub Pages:</strong> hosts this static information page only; it does not process uploaded images or run model inference.</li>
+          <li><strong>Local or intranet deployment:</strong> recommended for clinical demonstrations involving identifiable facial photographs.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Privacy</h2>
+        <p>
+          Facial photographs are identifiable medical data. Public demos should use consented demonstration images only. Raw facial images, patient identifiers and individual-level clinical data should not be committed to GitHub.
+        </p>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      FACES · Facial Analysis for Classification of Etiology in Scoliosis
+    </footer>
+  </body>
+</html>
