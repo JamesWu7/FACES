@@ -70,7 +70,6 @@ class FaceCropper:
                 return FaceCropResult(
                     cropped,
                     method="opencv_haar",
-                    warning="The dlib 68-point landmark model is unavailable; OpenCV Haar face detection was used as a fallback.",
                 )
 
         raise ValueError(
